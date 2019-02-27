@@ -66,13 +66,7 @@ class JunitReporter(BaseReporter):
             print(pylint_to_junit(self._messages.values()), file=self.out)
         else:
             ts = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
-            empty_results = """
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-  <testsuite errors="0" failures="0" name="pylint" skipped="0" tests="0" time="0.000" timestamp="{0}">
-  </testsuite>
-</testsuites>
-            """.format(ts)
+            empty_results = """<?xml version="1.0" encoding="UTF-8"?><testsuites><testsuite errors="0" failures="0" name="pylint" skipped="0" tests="0" time="0.000" timestamp="{0}"></testsuite></testsuites>""".format(ts)
             print(empty_results, file=self.out)
 
     def display_reports(self, _layout):
